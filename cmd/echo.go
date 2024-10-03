@@ -6,14 +6,14 @@ import (
 )
 
 var echoCmd = &cobra.Command{
-	Use: "echo [text]",
-	Short: Echo the input text,
-	Args: cobra.MinimumArgs(1),
+    Use:   "echo [text]",
+    Short: "Echo the input text",
+    Args:  cobra.MinimumNArgs(1),
     Run: func(cmd *cobra.Command, args []string) {
         fmt.Println(args[0])
     },
 }
 
-funct init() {
+func init() {
     RootCmd.AddCommand(echoCmd)
 }
