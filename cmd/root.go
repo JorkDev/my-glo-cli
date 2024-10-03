@@ -2,6 +2,7 @@ package cmd
 
 import (
     "github.com/spf13/cobra"
+    "github.com/JorkDev/my-go-cli/config"
     "github.com/JorkDev/my-go-cli/internal"
     "fmt"
 )
@@ -16,6 +17,7 @@ var RootCmd = &cobra.Command{
 
 func Execute() {
     internal.InitLogger()
+    config.InitConfig()
     if err := RootCmd.Execute(); err != nil {
         fmt.Println(err)
     }
