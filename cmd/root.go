@@ -21,7 +21,7 @@ func Execute() {
     internal.InitLogger()
     config.InitConfig()
     if err := RootCmd.Execute(); err != nil {
-        internal.Logger.Error("Error executing root command", zap.Error(err))
-        fmt.Println(err)
+        internal.Logger.Error("Command execution failed", zap.Error(err))
+        fmt.Println("Error:", err)
     }
 }
