@@ -1,7 +1,17 @@
 package internal
 
-import "log"
+import (
+    "go.uber.org/zap"
+    "log"
+)
+
+var Logger *zap.Logger
 
 func InitLogger() {
-    log.Println("Logger initialized")
+    var err error
+
+    Logger, err = zap.NewProduction()
+    if err != nil {
+        log.Fatalf("Failed to initialize logger: %v", err)
+    }
 }
