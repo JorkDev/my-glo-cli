@@ -6,7 +6,7 @@
 
 ## Description
 
-`My Go CLI` is a command-line tool built in Go that showcases advanced development techniques such as configuration management, logging, error handling, Dockerization, and unit testing. This project is built step-by-step, with each commit demonstrating a new feature or concept. The goal is to provide a comprehensive guide to building an advanced CLI in Go from scratch, progressing from simple to complex.
+`My Go CLI` is a command-line tool built in Go that showcases advanced development techniques such as configuration management, logging, error handling, Dockerization, and unit testing. This project is built step-by-step, with each commit demonstrating a new feature or concept.
 
 ---
 
@@ -48,18 +48,45 @@ go run main.go
 
 ---
 
+## Docker Usage
+
+To run the CLI using Docker, follow these steps:
+
+### Build the Docker Image
+
+```bash
+docker build -t my-go-cli .
+```
+
+### Run the Docker Container
+
+```bash
+docker run --rm my-go-cli echo "Hello, Docker!"
+```
+
+This will execute the `echo` command inside the container. You can also run the default command:
+
+```bash
+docker run --rm my-go-cli
+```
+
+---
+
 ## Project Structure
 
 ```
 my-go-cli/
 ├── cmd/                  # Command definitions
 │   ├── root.go
+│   └── echo.go
+│   └── echo_test.go      # File for unit tests
 ├── config/               # Configuration files and setup
 │   └── config.go
 ├── internal/             # Internal packages, such as logging
 │   └── logger.go
 ├── config.yaml           # Default configuration file
 ├── main.go               # Main entry point of the CLI
+├── Dockerfile            # Docker configuration file
 ├── README.md             # Project description and instructions
 ├── go.mod                # Go module file
 └── LICENSE               # License file
